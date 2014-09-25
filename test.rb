@@ -1,9 +1,7 @@
 #!/usr/bin/ruby
-#encoding: utf-8
-require 'digest/md5' ﻿
+
 def sum(n)
-	md5 = Digest::MD5.file(n).hexdigest
+	exec("md5sum #{n} | awk '{print $1}'")
 end
 
-n=gets.chomp
-sum(n)
+sum('/work/coding/ruby-scan/1.dat')
